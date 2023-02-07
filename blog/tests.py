@@ -11,5 +11,3 @@ class TestModel(TestCase):
         d = self.blog
         self.assertTrue(isinstance(d, Post))
         self.assertEqual(str(d), d.title)
-
-    
