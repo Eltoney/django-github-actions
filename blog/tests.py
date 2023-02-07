@@ -11,3 +11,6 @@ class TestModel(TestCase):
         d = self.blog
         self.assertTrue(isinstance(d, Post))
         self.assertEqual(str(d), d.title)
+
+    def test_faile(self):
+        assert 5 == 6
