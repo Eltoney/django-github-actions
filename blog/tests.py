@@ -14,3 +14,6 @@ class TestModel(TestCase):
 
     def test_new(self):
         assert 1 == 1
+
+    def test_faile(self):
+        assert 5500 == 5
