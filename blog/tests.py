@@ -14,4 +14,4 @@ class TestModel(TestCase):
         self.assertEqual(str(d), d.title)
     
     def test_new(self):
-        assert 8 == 8
+        assert 12 == 12
