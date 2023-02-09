@@ -4,9 +4,9 @@ on:
   workflow_run:
     workflows: [Run Tests]
     types: [requested]
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   deploy-on-success:
