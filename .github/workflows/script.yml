@@ -1,10 +1,13 @@
 name: Deploy
 
 on:
-  workflow_run:
+  workflow_run: 
     workflows: ["Run Tests"]
     types: 
       - completed
+    push:
+    branches:
+      - main
 
 jobs:
   deploy-on-success:
