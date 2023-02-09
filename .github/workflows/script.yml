@@ -1,17 +1,18 @@
 name: Deploy
 
 on:
-  workflow_run:
-    workflows: [Run Tests]
-    types: [requested]
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
+    workflow_run:
+      workflows: [Run Tests]
+      types: 
+        - completed
 
 jobs:
   deploy-on-success:
-    runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
     steps:
       - run: echo 'The triggering workflow passed'
   # abort-on-failure:
