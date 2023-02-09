@@ -3,15 +3,19 @@ name: Deploy
 on:
   workflow_run:
     workflows: [Run Tests]
-    types:
-      - completed
+    types: [completed]
   push:
     branches:
       - main
 
 jobs:
-  deploy:
+  deploy-on-success:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - uses: actions/checkout@v3
-      - run: echo Hi Toni
+      - run: echo 'The triggering workflow passed'
+  abort-on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo 'The triggering workflow failed'
