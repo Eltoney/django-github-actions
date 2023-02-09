@@ -15,4 +15,5 @@ class TestModel(TestCase):
     
     @pytest.mark.xfail
     def test_new(self):
-        assert 1 == 2
+        assert 1 == 1
+
