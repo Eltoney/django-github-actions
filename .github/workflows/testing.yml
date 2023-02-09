@@ -19,3 +19,20 @@ jobs:
           pip install -r requirements.txt
       - name: Check tests
         run: pytest
+
+
+name: Deploy
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    needs: run-pytest
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo Hi Toni
