@@ -5,6 +5,7 @@ on:
     workflows: ["Run Tests"]
     types: 
       - completed
+    push
 
 jobs:
   deploy-on-success:
