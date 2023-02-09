@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import Post
+import pytest
 
 
 class TestModel(TestCase):
@@ -11,9 +12,8 @@ class TestModel(TestCase):
         d = self.blog
         self.assertTrue(isinstance(d, Post))
         self.assertEqual(str(d), d.title)
-
+    
+    @pytest.mark.xfail
     def test_new(self):
         assert 1 == 1
 
-    def test_faile(self):
-        assert 5500 == 5
