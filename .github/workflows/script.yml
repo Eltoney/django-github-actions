@@ -1,7 +1,7 @@
-name: Run Test
+name: Test then deploy
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
@@ -18,5 +18,9 @@ jobs:
           pip install -r requirements.txt
       - name: Check tests
         run: pytest
-
-
+  deploy:
+    runs-on: ubuntu-latest
+    needs: run-pytest
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo Hi Toni
